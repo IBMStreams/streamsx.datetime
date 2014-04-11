@@ -137,4 +137,33 @@ public float64 seconds(float64 seconds) {
     return seconds;
 }
 
+/**
+* Convert a timestamp into an string ISO format
+* use 'man strptime' to get the list of available format
+*/
 
+public rstring timestampToISO(timestamp dtime)
+{
+    mutable Sys.tm timetuple = { } ;
+    time(dtime, timetuple) ;
+    /*
+    * %Y The year, including century (for example, 1991).
+    * %m The month number (1-12).
+    * %d or %e The day of month (1-31).
+    */
+    rstring dateString = strftime(timetuple, "%Y-%m-%d") ;
+
+    /*
+    * %T        Equivalent to %H:%M:%S
+    */
+    rstring timeString = strftime(timetuple, "%T") ;
+    /*
+     *  %z     An RFC-822/ISO 8601 standard timezone specification.
+     */
+r    string timeZoneString = strftime(timetuple, "%z") ;
+
+
+    float64 milliseconds =(float64) getNanoseconds(dtime) / 1000000f ;
+    return dateString + "T" + timeString + "." +(rstring)((uint32) milliseconds) + timeZoneString ;
+
+}
