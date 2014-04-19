@@ -1,4 +1,4 @@
 streamsx.datetime
 =================
 
-Seed for streamsx.datetime for SPL datetime functionality.
+SPL toolkit providing additional functionality for dates and times.
