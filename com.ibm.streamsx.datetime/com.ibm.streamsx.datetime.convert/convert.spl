@@ -22,7 +22,7 @@ namespace com.ibm.streamsx.datetime.convert;
  *     // Set the retention to be five days
  *     parameter retain: days(5);
  * 
- * @param days Days to convert to seconds
+ * @param d Days to convert to seconds
  */
 public float64 days(int32 d) {
     return days((float64) d);
@@ -53,7 +53,7 @@ public float64 days(float64 days) {
  *     // and five minute trigger policy
  *     window IN: sliding, time(hours(2)), time(minutes(5));
  * 
- *  @param hours Hours to convert to seconds
+ *  @param h Hours to convert to seconds
  */
 public float64 hours(int32 h) {
     return hours((float64) h);
@@ -83,7 +83,7 @@ public float64 hours(float64 hours) {
  *     // Set the period to be five minutes
  *     parameter period: minutes(5);
  * 
- * @param minutes Minutes to convert to seconds
+ * @param mins Minutes to convert to seconds
  */
 public float64 minutes(int32 mins) {
     return minutes((float64) mins);
@@ -115,7 +115,7 @@ public float64 minutes(float64 minutes) {
  *     // Tumbling window with 3 second eviction policy
  *     window IN: tumbling, time(seconds(3));
  * 
- * @param seconds Number of seconds to return
+ * @param s Number of seconds to return
  */
 public float64 seconds(int32 s) {
     return (float64) s;
