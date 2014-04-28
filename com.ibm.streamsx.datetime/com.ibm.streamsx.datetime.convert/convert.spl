@@ -24,8 +24,8 @@ namespace com.ibm.streamsx.datetime.convert;
  * 
  * @param days Days to convert to seconds
  */
-public float64 days(int32 days) {
-    return days((float64) days);
+public float64 days(int32 d) {
+    return days((float64) d);
 }
 
 /**
@@ -39,7 +39,7 @@ public float64 days(int32 days) {
  * 
  *  @param days Days to convert to seconds
  */
-public float64 days(float32 days) {
+public float64 days(float64 days) {
     return hours(days * 24.0);
 }
 
@@ -55,8 +55,8 @@ public float64 days(float32 days) {
  * 
  *  @param hours Hours to convert to seconds
  */
-public float64 hours(int32 hours) {
-    return hours((float64) hours);
+public float64 hours(int32 h) {
+    return hours((float64) h);
 }
 
 /**
@@ -85,8 +85,8 @@ public float64 hours(float64 hours) {
  * 
  * @param minutes Minutes to convert to seconds
  */
-public float64 minutes(int32 minutes) {
-    return minute((float64) minutes);
+public float64 minutes(int32 mins) {
+    return minutes((float64) mins);
 }
 
 /**
@@ -117,8 +117,8 @@ public float64 minutes(float64 minutes) {
  * 
  * @param seconds Number of seconds to return
  */
-public float64 seconds(int32 seconds) {
-    return seconds;
+public float64 seconds(int32 s) {
+    return (float64) s;
 }
 
 /**
