@@ -16,7 +16,7 @@ type TimeMillis = int64 ;
  * Get a [TimeMillis] value from a SPL `timestamp` value.
  */
 public TimeMillis toTimeMillis(timestamp ts) {
-     return (getSeconds(ts) * 1000l) + ((TimeMillis) (getNanoseconds() / 1000000u));
+     return (getSeconds(ts) * 1000l) + ((TimeMillis) (getNanoseconds(ts) / 1000000u));
 }
 
 /**
