@@ -62,20 +62,26 @@
        <param name="tkdir" value="${toolkit}"/>
        <param name="tktitle" value="IBMStreams ${tkinfo.info:identity.info:name} Toolkit"/>
     </antcall>
+    <!-- no samples yet!
     <subant target="spldoctoolkit" genericantfile="${basedir}/build.xml">
        <dirset dir="samples" includes="*"/>
     </subant>
+    -->
   </target>
 
   <target name="samples" depends="toolkit">
+  <!-- no samples yet!
     <subant target="indextoolkit" genericantfile="${basedir}/build.xml">
        <dirset dir="samples" includes="*"/>
     </subant>
+    -->
   </target>
   <target name="cleansamples">
+  <!-- no samples yet!
     <subant target="cleantoolkit" genericantfile="${basedir}/build.xml">
        <dirset dir="samples" includes="*"/>
     </subant>
+    -->
   </target>
   
   <!-- Test targets -->
