@@ -3,7 +3,7 @@
   <info:identity>
     <info:name>com.ibm.streamsx.datetime</info:name>
     <info:description>Set of utilities to handle dates, times and timestamps.</info:description>
-    <info:version>1.0.1.__dev__</info:version>
+    <info:version>1.1.0.__dev__</info:version>
     <info:requiredProductVersion>3.2.0</info:requiredProductVersion>
   </info:identity>
   <info:dependencies/>

@@ -28,9 +28,14 @@ public class ISO8601 {
 	private static final ThreadLocal<SimpleDateFormat> convertors = new ThreadLocal<>();
 	
 	@Function(
-			description="Convert a full ISO 8601 date to number of milliseconds since the epoch. A full ISO 8061 date looks like `2015-11-24T14:54:19.427+00:00`. Returns a value that can be used with the type [TimeMillis].")
+			description="Convert a full ISO 8601 date to number of milliseconds since the epoch. A full ISO 8061 date looks like `2015-11-24T14:54:19.427+00:00`. Returns a value that can be used with the type [TimeMillis]. "
+					+ "The argument is trimmed of leading and trailing whitespace, if the result is an empty string then 0 is returned.")
 	public static long fromIso8601ToMillis(String date) throws ParseException {
 		SimpleDateFormat convertor = getIso8601Convertor();
+		
+		date = date.trim();
+		if (date.isEmpty())
+			return 0;
 		
 		return convertor.parse(date).getTime();
 	}
