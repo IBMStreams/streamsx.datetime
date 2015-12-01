@@ -1,0 +1,28 @@
+/*
+# Licensed Materials - Property of IBM
+# Copyright IBM Corp. 2015  
+# US Government Users Restricted Rights - Use, duplication or
+# disclosure restricted by GSA ADP Schedule Contract with
+# IBM Corp.
+*/
+ 
+namespace com.ibm.streamsx.datetime.convert;
+
+use com.ibm.streamsx.datetime::toTimestamp;
+
+/**
+ * Get a SPL `timestamp` from a full ISO 8601 date and a machine identifier.
+ * A full ISO 8061 date looks like `2015-11-24T14:54:19.427+00:00`.
+ */
+public timestamp fromIso8601ToTimestamp(rstring date, int32 mid) {
+     return toTimestamp(fromIso8601ToMillis(date), mid);
+}
+
+/**
+ * Get a SPL `timestamp` from a full ISO 8601 date.
+ * The machine identifier is set to zero in the returned `timestamp`.
+ * A full ISO 8061 date looks like `2015-11-24T14:54:19.427+00:00`.
+ */
+public timestamp fromIso8601ToTimestamp(rstring date) {
+     return toTimestamp(fromIso8601ToMillis(date), 0);
+}
