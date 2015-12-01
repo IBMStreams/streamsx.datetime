@@ -22,7 +22,7 @@
 <div class="body refbody">
 <div class="section">
 <p class="p">
-<a class="xref" href="../toolkits/toolkits.html">IBMStreams com.ibm.streamsx.datetime Toolkit</a> &gt; <a class="xref" href="tk$com.ibm.streamsx.datetime.html">com.ibm.streamsx.datetime 1.0.0.commit_c2aa99a</a> &gt; com.ibm.streamsx.datetime.convert</p>
+<a class="xref" href="../toolkits/toolkits.html">IBMStreams com.ibm.streamsx.datetime Toolkit</a> &gt; <a class="xref" href="tk$com.ibm.streamsx.datetime.html">com.ibm.streamsx.datetime 1.1.0.commit_786386e</a> &gt; com.ibm.streamsx.datetime.convert</p>
 
 </div>
 
@@ -33,6 +33,15 @@
 </li>
 
 <li class="sli"><strong class="ph b"><a class="xref" href="spl$com.ibm.streamsx.datetime.convert$convert.html#spldoc_compilationunit__function__days.int32">days(int32)</a></strong>: Convert whole days to seconds as a <tt class="ph tt">float64</tt>.
+</li>
+
+<li class="sli"><strong class="ph b"><a class="xref" href="fj$com.ibm.streamsx.datetime.convert.html#spldoc_functions__fromIso8601ToMillis.T">fromIso8601ToMillis(T)</a></strong>: Convert a full ISO 8601 date to number of milliseconds since the epoch.
+</li>
+
+<li class="sli"><strong class="ph b"><a class="xref" href="spl$com.ibm.streamsx.datetime.convert$iso8601.html#spldoc_compilationunit__function__fromIso8601ToTimestamp.rstring">fromIso8601ToTimestamp(rstring)</a></strong>: Get a SPL <tt class="ph tt">timestamp</tt> from a full ISO 8601 date.
+</li>
+
+<li class="sli"><strong class="ph b"><a class="xref" href="spl$com.ibm.streamsx.datetime.convert$iso8601.html#spldoc_compilationunit__function__fromIso8601ToTimestamp.rstring.int32">fromIso8601ToTimestamp(rstring, int32)</a></strong>: Get a SPL <tt class="ph tt">timestamp</tt> from a full ISO 8601 date and a machine identifier.
 </li>
 
 <li class="sli"><strong class="ph b"><a class="xref" href="spl$com.ibm.streamsx.datetime.convert$convert.html#spldoc_compilationunit__function__hours.float64">hours(float64)</a></strong>: Convert hours to seconds as a <tt class="ph tt">float64</tt>.
@@ -51,6 +60,12 @@
 </li>
 
 <li class="sli"><strong class="ph b"><a class="xref" href="spl$com.ibm.streamsx.datetime.convert$convert.html#spldoc_compilationunit__function__seconds.int32">seconds(int32)</a></strong>: Convert whole seconds to seconds as a <tt class="ph tt">float64</tt>.
+</li>
+
+<li class="sli"><strong class="ph b"><a class="xref" href="fj$com.ibm.streamsx.datetime.convert.html#spldoc_functions__toIso8601.int64">toIso8601(int64)</a></strong>: Convert a <a class="xref" href="spl$com.ibm.streamsx.datetime$epochms.html#spldoc_compilationunit__type__TimeMillis">TimeMillis</a> value to an full ISO 8061 date using UTC as the time zone.
+</li>
+
+<li class="sli"><strong class="ph b"><a class="xref" href="fj$com.ibm.streamsx.datetime.convert.html#spldoc_functions__toIso8601.uint64">toIso8601(uint64)</a></strong>: Convert a <a class="xref" href="spl$com.ibm.streamsx.datetime$epochms.html#spldoc_compilationunit__type__TimeMillis">TimeMillis</a> value to an full ISO 8061 date using UTC as the time zone.
 </li>
 
 </ul>
