@@ -124,7 +124,7 @@
   <target name="release"  depends="clean,setcommitversion,create_release_bundle,revertversion"/>
   <target name="create_release_bundle"  depends="all">
 	<mkdir dir="${tmp}" />
-        <property name="releasefilename" value="${tmp}/streamx.datetime.toolkits-${tkinfo.info:identity.info:version}-${DSTAMP}-${TSTAMP}.tgz"/>
+        <property name="releasefilename" value="${tmp}/streamsx.datetime.toolkits-${tkinfo.info:identity.info:version}-${DSTAMP}-${TSTAMP}.tgz"/>
     	<tar compression="gzip" longfile="gnu"
              destfile="${releasefilename}"
     	     basedir="${basedir}"
