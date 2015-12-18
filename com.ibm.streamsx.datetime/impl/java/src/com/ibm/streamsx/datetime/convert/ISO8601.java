@@ -44,7 +44,9 @@ public class ISO8601 {
     // Use a thread local since SimpleDateFormat is not thread safe
     private static final ThreadLocal<EnumMap<Fmt, SimpleDateFormat>> convertors = new ThreadLocal<>();
 
-    @Function(description = "Convert a full ISO 8601 date to number of milliseconds since the epoch. A full ISO 8061 date looks like `2015-11-24T14:54:19.427+00:00`. Returns a value that can be used with the type [TimeMillis]. "
+    @Function(description = "Convert a full ISO 8601 date to number of milliseconds since the epoch. A full ISO 8061 date looks like `2015-11-24T22:54:19.427Z`, "
+            + "`2015-11-24T14:54:19.427-08:00`, `2015-11-24T14:54:19.427-0800` or `2015-11-24T14:54:19.427-08`. "
+            + "Returns a value that can be used with the type [TimeMillis]. "
             + "The argument is trimmed of leading and trailing whitespace, if the result is an empty string then 0 is returned.")
     public static long fromIso8601ToMillis(String date) throws ParseException {
 
