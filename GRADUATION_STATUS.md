@@ -6,20 +6,20 @@ Incubation for projects is covered here: https://github.com/IBMStreams/administr
 
 ## Status
 
-- [ ] :white_check_mark: Stable release(s)
+- [] :white_check_mark: Stable release(s)
   * Status: Has released three stable releases
 - [ ] :white_check_mark: Project is properly documented
   * Status: Toolkit has SPLDOC.
 - [ ] :red_circle: Project has samples and instructions to help users get started easily
-  * Status: **TBD**
+  * Status: No samples, and only the SPLDOC
 - [ ] :red_circle: Sufficient testing
-  * Status: **TBD**
+  * Status: Only ad-hoc testing.
 - [ ] :red_circle: Instructions on how to get started with development and contributing to project
-  * Status: **TBD**
+  * Status: None
 - [ ] :white_check_mark: Website that contains information and documentation of the project
   * Status: Has github.io page
 - [ ] :red_circle: Clear release plan
-  * Status: **TBD**
+  * Status: None - items are currently added as needed, agile style.
 - [ ] :white_check_mark: At least one active committer
   * Status: @ddebrunner
 
