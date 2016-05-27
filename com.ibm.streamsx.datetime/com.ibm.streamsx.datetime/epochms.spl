@@ -1,0 +1,35 @@
+/**
+ * Set of functionality supporting a time represented in
+ * number of milliseconds since 1970-01-01 00:00:00.000.
+ * This matches the epoch for Java and Javascript.
+ */
+ 
+namespace com.ibm.streamsx.datetime;
+
+/**
+ * Milliseconds since epoch (1970-01-01 00:00:00.000).
+ * Useful when interfacing to Java and Javascript.
+ */
+type TimeMillis = int64 ;
+
+/**
+ * Get a [TimeMillis] value from a SPL `timestamp` value.
+ */
+public TimeMillis toTimeMillis(timestamp ts) {
+     return (getSeconds(ts) * 1000l) + ((TimeMillis) (getNanoseconds(ts) / 1000000u));
+}
+
+/**
+ * Get a SPL `timestamp` from a [TimeMillis] and a machine identifier.
+ */
+public timestamp toTimestamp(TimeMillis ms, int32 mid) {
+     return createTimestamp(ms/1000l,((uint32) (ms % 1000l)) * 1000000u, mid);
+}
+
+/**
+ * Get a SPL `timestamp` from a [TimeMillis].
+ * The machine identifier is set to zero in the returned `timestamp`.
+ */
+public timestamp toTimestamp(TimeMillis ms) {
+     return toTimestamp(ms, 0);
+}

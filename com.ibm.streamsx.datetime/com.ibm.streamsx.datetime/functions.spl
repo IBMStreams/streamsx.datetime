@@ -1,0 +1,26 @@
+/*
+# Licensed Materials - Property of IBM
+# Copyright IBM Corp. 2014  
+# US Government Users Restricted Rights - Use, duplication or
+# disclosure restricted by GSA ADP Schedule Contract with
+# IBM Corp.
+*/
+
+/**
+ * General date and time functions.
+ */
+ 
+namespace com.ibm.streamsx.datetime;
+
+/**
+ * Get the current time using getTimestamp().
+ * Alias of `getTimestamp` with a natural name.
+ */
+public timestamp now() { return getTimestamp(); }
+
+/**
+ * Get the current time using getTimestamp().
+ * Alias of `getTimestamp` with a natural name.
+ */
+public timestamp currentTimestamp() { return getTimestamp(); }
+
