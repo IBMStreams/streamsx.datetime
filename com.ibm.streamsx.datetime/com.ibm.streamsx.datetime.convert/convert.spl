@@ -23,6 +23,7 @@ namespace com.ibm.streamsx.datetime.convert;
  *     parameter retain: days(5);
  * 
  * @param d Days to convert to seconds
+ * @return Number of seconds represented by `d` days.
  */
 public float64 days(int32 d) {
     return days((float64) d);
@@ -37,7 +38,8 @@ public float64 days(int32 d) {
  *     // Set the timeout to be one and a half days
  *     parameter timeout: days(1.5);
  * 
- *  @param days Days to convert to seconds
+ * @param days Days to convert to seconds
+ * @return Number of seconds represented by `d` days.
  */
 public float64 days(float64 days) {
     return hours(days * 24.0);
@@ -53,7 +55,8 @@ public float64 days(float64 days) {
  *     // and five minute trigger policy
  *     window IN: sliding, time(hours(2)), time(minutes(5));
  * 
- *  @param h Hours to convert to seconds
+ * @param h Hours to convert to seconds
+ * @return Number of seconds represented by `h` hours.
  */
 public float64 hours(int32 h) {
     return hours((float64) h);
@@ -69,6 +72,7 @@ public float64 hours(int32 h) {
  *     parameter period: hours(2);
  * 
  * @param hours Hours to convert to seconds
+ * @return Number of seconds represented by `hours`.
  */
 public float64 hours(float64 hours) {
     return minutes(hours * 60.0);
@@ -84,6 +88,7 @@ public float64 hours(float64 hours) {
  *     parameter period: minutes(5);
  * 
  * @param mins Minutes to convert to seconds
+ * @return Number of seconds represented by `mins`.
  */
 public float64 minutes(int32 mins) {
     return minutes((float64) mins);
@@ -100,6 +105,7 @@ public float64 minutes(int32 mins) {
  *     window IN: tumbling, time(minutes(2.5));
  * 
  * @param minutes Minutes to convert to seconds
+ * @return Number of seconds represented by `minutes`.
  */
 public float64 minutes(float64 minutes) {
     return minutes * 60.0;
@@ -116,6 +122,7 @@ public float64 minutes(float64 minutes) {
  *     window IN: tumbling, time(seconds(3));
  * 
  * @param s Number of seconds to return
+ * @return Number of seconds represented by `s`.
  */
 public float64 seconds(int32 s) {
     return (float64) s;
@@ -132,6 +139,7 @@ public float64 seconds(int32 s) {
  *     window IN: tumbling, time(seconds(3.5));
  * 
  * @param seconds Number of seconds to return
+ * @return seconds (the input value).
  */
 public float64 seconds(float64 seconds) {
     return seconds;
