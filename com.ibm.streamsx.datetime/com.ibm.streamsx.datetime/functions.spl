@@ -15,12 +15,14 @@ namespace com.ibm.streamsx.datetime;
 /**
  * Get the current time using getTimestamp().
  * Alias of `getTimestamp` with a natural name.
+ * @return Current time.
  */
 public stateful timestamp now() { return getTimestamp(); }
 
 /**
  * Get the current time using getTimestamp().
  * Alias of `getTimestamp` with a natural name.
+ * @return Current time.
  */
 public stateful timestamp currentTimestamp() { return getTimestamp(); }
 
