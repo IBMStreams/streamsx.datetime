@@ -22,7 +22,7 @@
 <div class="body refbody">
 <div class="section">
 <p class="p">
-<a class="xref" href="../toolkits/toolkits.html">IBMStreams com.ibm.streamsx.datetime Toolkit</a> &gt; <a class="xref" href="tk$com.ibm.streamsx.datetime.html">com.ibm.streamsx.datetime 1.1.0.commit_786386e</a> &gt; <a class="xref" href="ns$com.ibm.streamsx.datetime.html">com.ibm.streamsx.datetime</a> &gt; epochms.spl</p>
+<a class="xref" href="../toolkits/toolkits.html">IBMStreams com.ibm.streamsx.datetime Toolkit</a> &gt; <a class="xref" href="tk$com.ibm.streamsx.datetime.html">com.ibm.streamsx.datetime 1.1.2.commit_ed502a8</a> &gt; <a class="xref" href="ns$com.ibm.streamsx.datetime.html">com.ibm.streamsx.datetime</a> &gt; epochms.spl</p>
 
 </div>
 
@@ -63,7 +63,7 @@
 
       <dd class="dd">
 <ul class="sl simple">
-<li class="sli"><strong class="ph b"><a class="xref" href="spl$com.ibm.streamsx.datetime$epochms.html#spldoc_compilationunit__type__TimeMillis">TimeMillis</a></strong>: Milliseconds since epoch (1970-01-01 00:00:00.000).
+<li class="sli"><strong class="ph b"><a class="xref" href="spl$com.ibm.streamsx.datetime$epochms.html#spldoc_compilationunit__type__TimeMillis">TimeMillis</a></strong>: Milliseconds since epoch (1970-01-01 00:00:00.000). Useful when interfacing to Java and Javascript.
 </li>
 
 </ul>
@@ -93,7 +93,7 @@
 
  <ul class="sl simple">
    <li class="sli">
-<strong class="ph b">ts</strong>
+<strong class="ph b">ts</strong>: <tt class="ph tt">timestamp</tt> value to be converted.
    </li>
 
  </ul>
@@ -103,8 +103,7 @@
 <div class="section"><h2 class="title sectiontitle">Returns</h2>
 
 <ul class="sl simple"><li class="sli">
-<tt class="ph tt">TimeMillis</tt>
-</li>
+Value of <tt class="ph tt">ts</tt> in milliseconds since the epoch.</li>
 </ul>
 
 </div>
@@ -123,11 +122,11 @@
 
  <ul class="sl simple">
    <li class="sli">
-<strong class="ph b">ms</strong>
+<strong class="ph b">ms</strong>: Milliseconds since the epoch.
    </li>
 
    <li class="sli">
-<strong class="ph b">mid</strong>
+<strong class="ph b">mid</strong>: Machine identifer for returned <tt class="ph tt">timestamp</tt>.
    </li>
 
  </ul>
@@ -137,8 +136,7 @@
 <div class="section"><h2 class="title sectiontitle">Returns</h2>
 
 <ul class="sl simple"><li class="sli">
-<tt class="ph tt">timestamp</tt>
-</li>
+<tt class="ph tt">timestamp</tt> representing <tt class="ph tt">ms</tt> and <tt class="ph tt">mid</tt></li>
 </ul>
 
 </div>
@@ -157,7 +155,7 @@
 
  <ul class="sl simple">
    <li class="sli">
-<strong class="ph b">ms</strong>
+<strong class="ph b">ms</strong>: Milliseconds since the epoch.
    </li>
 
  </ul>
@@ -167,8 +165,7 @@
 <div class="section"><h2 class="title sectiontitle">Returns</h2>
 
 <ul class="sl simple"><li class="sli">
-<tt class="ph tt">timestamp</tt>
-</li>
+<tt class="ph tt">timestamp</tt> representing <tt class="ph tt">ms</tt> with machine identfier set to zero.</li>
 </ul>
 
 </div>

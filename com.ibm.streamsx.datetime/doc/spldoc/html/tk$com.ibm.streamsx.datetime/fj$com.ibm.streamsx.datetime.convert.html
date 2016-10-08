@@ -22,7 +22,7 @@
 <div class="body refbody">
 <div class="section">
 <p class="p">
-<a class="xref" href="../toolkits/toolkits.html">IBMStreams com.ibm.streamsx.datetime Toolkit</a> &gt; <a class="xref" href="tk$com.ibm.streamsx.datetime.html">com.ibm.streamsx.datetime 1.1.0.commit_786386e</a> &gt; <a class="xref" href="ns$com.ibm.streamsx.datetime.convert.html">com.ibm.streamsx.datetime.convert</a> &gt; Java Native Functions</p>
+<a class="xref" href="../toolkits/toolkits.html">IBMStreams com.ibm.streamsx.datetime Toolkit</a> &gt; <a class="xref" href="tk$com.ibm.streamsx.datetime.html">com.ibm.streamsx.datetime 1.1.2.commit_ed502a8</a> &gt; <a class="xref" href="ns$com.ibm.streamsx.datetime.convert.html">com.ibm.streamsx.datetime.convert</a> &gt; Java Native Functions</p>
 
 </div>
 
@@ -37,7 +37,7 @@ This page documents native functions that can be invoked from SPL, including the
    <dt class="dt dlterm splpart" id="spldoc_functions__fromIso8601ToMillis.T"><tt class="ph tt">      &lt;string T&gt; public int64 fromIso8601ToMillis(T date)      </tt>   </dt>
 
    <dd class="dd">
-<p class="p">Convert a full ISO 8601 date to number of milliseconds since the epoch. A full ISO 8061 date looks like <tt class="ph tt">2015-11-24T14:54:19.427+00:00</tt>. Returns a value that can be used with the type <a class="xref" href="spl$com.ibm.streamsx.datetime$epochms.html#spldoc_compilationunit__type__TimeMillis">TimeMillis</a>. The argument is trimmed of leading and trailing whitespace, if the result is an empty string then 0 is returned.
+<p class="p">Convert a full ISO 8601 date to number of milliseconds since the epoch. A full ISO 8061 date looks like <tt class="ph tt">2015-11-24T22:54:19.427Z</tt>, <tt class="ph tt">2015-11-24T14:54:19.427-08:00</tt>, <tt class="ph tt">2015-11-24T14:54:19.427-0800</tt> or <tt class="ph tt">2015-11-24T14:54:19.427-08</tt>. Returns a value that can be used with the type <a class="xref" href="spl$com.ibm.streamsx.datetime$epochms.html#spldoc_compilationunit__type__TimeMillis">TimeMillis</a>. The argument is trimmed of leading and trailing whitespace, if the result is an empty string then 0 is returned.
 </p>
 
    </dd>
