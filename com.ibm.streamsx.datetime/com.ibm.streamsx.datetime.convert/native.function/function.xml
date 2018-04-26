@@ -5,11 +5,20 @@
     <function:cppNamespaceName>com::ibm::streamsx::datetime::convert</function:cppNamespaceName>
     <function:functions>
       <function:function>
-        <function:description></function:description>
+        <function:description>
+Convert formatted timestamp to SPL timestamp.
+@param ts String timestamp.
+@return SPL timestamp.
+        </function:description>
         <function:prototype>public timestamp parseDateTime(rstring ts)</function:prototype>
       </function:function>
       <function:function>
-        <function:description></function:description>
+        <function:description>
+Convert formatted timestamp to SPL timestamp.
+@param ts String timestamp.
+@param updateOffset Boolean indicator if DST offset should be updated on each call.
+@return SPL timestamp.
+        </function:description>
         <function:prototype>public timestamp parseDateTime(rstring ts, boolean updateOffset)</function:prototype>
       </function:function>
     </function:functions>
