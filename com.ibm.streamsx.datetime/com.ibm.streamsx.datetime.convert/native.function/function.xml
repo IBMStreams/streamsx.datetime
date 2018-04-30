@@ -7,7 +7,7 @@
       <function:function>
         <function:description>
 Convert formatted timestamp to SPL timestamp.
-@param ts String timestamp.
+@param ts String timestamp to parse.
 @return SPL timestamp.
         </function:description>
         <function:prototype>public timestamp parseDateTime(rstring ts)</function:prototype>
@@ -15,11 +15,11 @@ Convert formatted timestamp to SPL timestamp.
       <function:function>
         <function:description>
 Convert formatted timestamp to SPL timestamp.
-@param ts String timestamp.
-@param updateOffset Boolean indicator if DST offset should be updated on each call.
+@param ts String timestamp to parse.
+@param missingTimeExc Boolean flag to indicate whether to throw an exception if the timestamp does not include a time.
 @return SPL timestamp.
         </function:description>
-        <function:prototype>public timestamp parseDateTime(rstring ts, boolean updateOffset)</function:prototype>
+        <function:prototype>public timestamp parseDateTime(rstring ts, boolean missingTimeExc)</function:prototype>
       </function:function>
     </function:functions>
     <function:dependencies>

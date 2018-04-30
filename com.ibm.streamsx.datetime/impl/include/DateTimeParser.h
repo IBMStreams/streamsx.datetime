@@ -2,6 +2,7 @@
 #define DATETIME_H_
 
 #include <SPL/Runtime/Function/TimeFunctions.h>
+#include <streams_boost/date_time/c_local_time_adjustor.hpp>
 #include <streams_boost/date_time/gregorian/gregorian_types.hpp>
 #include <streams_boost/date_time/posix_time/posix_time.hpp>
 #include <streams_boost/fusion/include/adapt_struct.hpp>
@@ -16,9 +17,11 @@ namespace com { namespace ibm { namespace streamsx { namespace datetime { namesp
 	using streams_boost::gregorian::date;
 	using streams_boost::phoenix::bind;
 	using streams_boost::phoenix::ref;
+	using streams_boost::phoenix::throw_;
 
 	typedef std::string::const_iterator iter_t;
 	typedef streams_boost::iterator_range<iter_t> iterRange_t;
+	typedef streams_boost::date_time::c_local_adjustor<ptime> cLocalAdjustor;
 
 	struct DateTime {
 		unsigned short year;
@@ -45,11 +48,12 @@ namespace com { namespace ibm { namespace streamsx { namespace datetime { namesp
 	    	delim = omit[punct | space];
 
 	    	// Parse the input data directly to DateTime structure
-	   		dateTime %= eps > // '>' means any parsing error after it will throw an exception
-	   			strict_ushort4 >> delim >> strict_ushort2 >> delim >> strict_ushort2 >> (lit('T') | delim) >> // date
-	   			-ushort_ >> delim >> -ushort_ >> delim >> -ushort_ >> //  time
-				-strict_double >> ((&char_("Z+-") >> attr(false)) | attr(true)) >> // nanos and TZ
-				-strict_short2 >> -delim >> -strict_short2; // TZ time
+	   		dateTime %= skip(space)[eps] >												// '>' means any parsing error after it will throw an exception
+	   			strict_ushort4 >> delim >> strict_ushort2 >> delim >> strict_ushort2 >>	// date
+				(lit('T') | skip(space)[&eoi][throw_("No time")] | delim) >>			// 'T', delimiter or end of input (no time found)
+	   			ushort_ >> delim >> ushort_ >> delim >> ushort_ >>						// time
+				-strict_double >> ((&char_("Z+-") >> attr(false)) | attr(true)) >>		// nanos and TZ
+				-strict_short2 >> -delim >> -strict_short2;								// TZ offset
 	    }
 
 	private:
@@ -58,21 +62,18 @@ namespace com { namespace ibm { namespace streamsx { namespace datetime { namesp
 	};
 
 
-	// Get an offset for a default timezone including DST - using rint workaround to round seconds as a double (till c++11)
-	inline long getOffset() {
-		return rint((double)(second_clock::local_time() - second_clock::universal_time()).total_seconds() / 10.0) * 10.0;
+	// Get an offset for a default timezone including DST
+	inline time_duration getOffset(ptime const& timeDate) {
+		return cLocalAdjustor::utc_to_local(timeDate) - timeDate;
 	}
 
-
 	// parseDateTime accepts date as string and optionally offset update policy (default - no update)
-	inline SPL::timestamp parseDateTime(std::string const& ts, bool updateOffset = false) {
+	inline SPL::timestamp parseDateTime(std::string const& ts, bool missingTimeExc = false) {
 
 		// Define DateTimeGrammar as a static variable - thread safe
 		static DateTimeGrammar dateTimeGrammar;
 		// Define an epoch base (1970/1/1)
 		static const ptime epoch(from_time_t(0));
-		// Define timezone offset
-		static const long offset(getOffset());
 
 		DateTime dateTime = {};
 
@@ -85,6 +86,11 @@ namespace com { namespace ibm { namespace streamsx { namespace datetime { namesp
 		catch (expectation_failure<iter_t> const& ex) {
 		    throw std::runtime_error("Invalid format of date '" + ts + "'");
 		}
+		catch (...) {
+			dateTime.isLocal = true;
+			if(missingTimeExc)
+				throw std::runtime_error("Invalid format of date, time not found: '" + ts + "'");
+		}
 
 		// If timezone offset hours is negative then negate minutes too
 		if(dateTime.tz_hour < 0) dateTime.tz_min = -dateTime.tz_min;
@@ -96,7 +102,7 @@ namespace com { namespace ibm { namespace streamsx { namespace datetime { namesp
 
 		// Calculate seconds from epoch
 		const time_duration::sec_type totalSecs = dateTime.isLocal
-			? (timeDate - epoch).total_seconds() - (updateOffset ? getOffset() : offset) // no timezone provided - use the local offset to get UTC
+			? (timeDate - epoch - getOffset(timeDate)).total_seconds() // no timezone provided - use the local offset to get UTC
 			: (timeDate - epoch - hours(dateTime.tz_hour) - minutes(dateTime.tz_min)).total_seconds(); // the timezone offset exists - get UTC
 
 		return SPL::Functions::Time::createTimestamp(totalSecs, dateTime.nanos * 1000000000);
