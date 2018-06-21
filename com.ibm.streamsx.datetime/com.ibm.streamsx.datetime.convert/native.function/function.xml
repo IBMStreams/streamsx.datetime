@@ -16,7 +16,7 @@ Convert formatted timestamp to SPL timestamp.
         <function:description>
 Convert formatted timestamp to SPL timestamp.
 @param ts String timestamp to parse.
-@param missingTimeExc Boolean flag to indicate whether to throw an exception if the timestamp does not include a time.
+@param missingTimeExc Boolean flag to indicate whether to throw an exception if the timestamp does not include a time. The default is false.
 @return SPL timestamp.
         </function:description>
         <function:prototype>public timestamp parseDateTime(rstring ts, boolean missingTimeExc)</function:prototype>

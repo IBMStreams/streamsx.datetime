@@ -67,7 +67,7 @@ namespace com { namespace ibm { namespace streamsx { namespace datetime { namesp
 		return cLocalAdjustor::utc_to_local(timeDate) - timeDate;
 	}
 
-	// parseDateTime accepts date as string and optionally offset update policy (default - no update)
+	// parseDateTime accepts date as a string and an optional flag if to throw exception when time is missing (default: false)
 	inline SPL::timestamp parseDateTime(std::string const& ts, bool missingTimeExc = false) {
 
 		// Define DateTimeGrammar as a static variable - thread safe
