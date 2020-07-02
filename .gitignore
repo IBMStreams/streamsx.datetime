@@ -34,3 +34,5 @@ com.ibm.streamsx.datetime/impl/lib/*.jar
 *.lai
 *.la
 *.a
+
+/tmp/
