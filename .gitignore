@@ -15,8 +15,8 @@ samples/*/toolkit.xml
 *$StreamsModel.java
 
 # Package Files #
-com.ibm.streamsx.inet/lib/*.jar
-com.ibm.streamsx.inet/impl/lib/*.jar
+com.ibm.streamsx.datetime/lib/*.jar
+com.ibm.streamsx.datetime/impl/lib/*.jar
 *.war
 *.ear
 

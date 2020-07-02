@@ -1,1 +1,6 @@
 /.toolkitList
+/doc/
+/com.ibm.streamsx.datetime.convert/native.function/javaFunction.xml
+/com.ibm.streamsx.datetime.convert/native.function/SPL_JNIFunctions_com_ibm_streamsx_datetime_convert.h
+/com.ibm.streamsx.datetime/native.function/javaFunction.xml
+/com.ibm.streamsx.datetime/native.function/SPL_JNIFunctions_com_ibm_streamsx_datetime.h
